@@ -12,6 +12,7 @@ _Alpine_ is intended to be a semi-symmetric mixed indoor-outdoor map and takes i
 * Halo (a30)
 * Sacred Icon
 * Valhalla
+* Longest
 * Relic
 * Hang 'Em High
 * [Mudslide](http://hce.halomaps.org/index.cfm?fid=528)
