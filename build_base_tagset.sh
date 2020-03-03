@@ -30,4 +30,4 @@ rsync -r "deps/refined_halo1_replacement_tags/fixes/00_vehicle_and_weapon_fixes/
 rsync -r "deps/refined_halo1_replacement_tags/fixes/01_b40_c10_c40_a30_fog_fixes/" tags
 rsync -r "deps/refined_halo1_replacement_tags/fixes/02_sotr_shader_fixes/part_a/" tags
 rsync -r "deps/refined_halo1_replacement_tags/enhancements/highres_rasterizer_bitmaps/" tags
-rsync -r "deps/refined_halo1_replacement_tags/enhancements/jesse's_high_resolution_halo_hud/" tags
+rsync -r "deps/refined_halo1_replacement_tags/enhancements/jesse's_high_resolution_halo_hud/tags/" tags

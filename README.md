@@ -32,12 +32,11 @@ Halo CE maps are traditional built using the Halo Editing Kit (HEK), Photoshop, 
 ## Content creation
 ### Level geometry
 
-The map's level geometry is authored in [Blender][2] and exported using [Project Cartographer's JMS exporter][1]. It can be found in `data/levels/alpine/models/alpine.blend`. Note that the scene units have been set to `Metric` with a scale of `0.01`. The scene contains the following objects:
+The map's level geometry is authored in [Blender][2] and exported using [Project Cartographer's JMS exporter][1]. It can be found in `data/levels/alpine/models/alpine.blend`. The scene uses default units, with the view's clip range set to 100-100,000. It contains the following objects:
 
 * **frame**: Only children of this reference frame are exported to the JMS file
   * **bsp**: Main level geometry
 * **sun**: Approximate sunlight direction, used for prototyping lighting and shadows. Put Blender in rendered view mode for a preview
-* **bits**: A few Forerunner meshes separated for easy re-use, as well as reference cubes for player and warthog size
 
 Before the map is exported to JMS, apply the edge split (preserves normals for hard edges) and triangulate modifiers. Select "Halo Joined Model Skeleton (.jms)" from the export menu and use these options:
 
@@ -80,6 +79,7 @@ HEK's Sapien will be used for scenery and netgame flag placement. Theoretically 
 * Resolve scale and BSP compilation issues using new JMS exporter
 * Finish modeling the map
 * UV mapping
+* Portals
 * Create custom textures
 * Try to automate shader and other tag creation using YAML and reclaimer
 * Try to automate scenery and netgame flag placement using Blender exports and reclaimer rather than Sapien

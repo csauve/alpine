@@ -1,6 +1,53 @@
 /ref
 /wip-screens
 /release
-/tags
 /deps
+
+/*.wrl
+/*.obj
+/debug.txt
+/gamestate.txt
+/guerilla.cfg
+/heap_dump.txt
+/data/debug_lightmaps.tif
+
 *.blend1
+
+/tags/camera
+/tags/characters
+/tags/cinematics
+/tags/data
+/tags/effects
+/tags/fixed_mozzarilla_active_camo_block.globals.active_camouflage
+/tags/globals
+/tags/item collections
+/tags/lens flares
+/tags/light_tints
+/tags/old tags
+/tags/powerups
+/tags/rasterizer
+/tags/rasterizer_bitmap_generator.py
+/tags/scenery
+/tags/screenshots
+/tags/sky
+/tags/sound
+/tags/tags
+/tags/ui
+/tags/vehicles
+/tags/WARNING! README!.txt
+/tags/weapons
+/tags/levels/a10
+/tags/levels/a30
+/tags/levels/a50
+/tags/levels/b30
+/tags/levels/b40
+/tags/levels/c10
+/tags/levels/c20
+/tags/levels/c40
+/tags/levels/d20
+/tags/levels/d40
+/tags/levels/test
+/tags/levels/ui
+/tags/levels/alpine/bitmaps
+/tags/levels/alpine/alpine.bitmap
+/tags/levels/alpine/alpine.scenario_structure_bsp
