@@ -32,13 +32,13 @@ Halo CE maps are traditional built using the Halo Editing Kit (HEK), Photoshop, 
 ## Content creation
 ### Level geometry
 
-The map's level geometry is authored in [Blender][2] and exported using [Project Cartographer's JMS exporter][1]. It can be found in `data/levels/alpine/models/alpine.blend`. The scene uses default units, with the view's clip range set to 100-100,000. It contains the following objects:
+The map's level geometry is authored in [Blender][2] and exported using [Project Cartographer's JMS exporter][1] (be sure to use latest version). It can be found in `data/levels/alpine/models/alpine.blend`. The scene uses default units, with the view's clip range set to 100-100,000. It contains the following objects:
 
 * **frame**: Only children of this reference frame are exported to the JMS file
   * **bsp**: Main level geometry
 * **sun**: Approximate sunlight direction, used for prototyping lighting and shadows. Put Blender in rendered view mode for a preview
 
-Before the map is exported to JMS, apply the edge split (preserves normals for hard edges) and triangulate modifiers. Select "Halo Joined Model Skeleton (.jms)" from the export menu and use these options:
+Select "Halo Joined Model Skeleton (.jms)" from the export menu and use these options:
 
 * Path: `data/levels/alpine/models/alpine.JMS`
 * Encoding: UTF-8
@@ -46,7 +46,7 @@ Before the map is exported to JMS, apply the edge split (preserves normals for h
 * Game: Halo CE
 * Triangulate faces: no
 
-After exporting, undo the application of modifiers. A future improvement could be [applying modifiers non-destructively][8] within the export script so this step isn't necessary. Another improvement could be supporting CLI arguments and invoking `blender` from a build script to export the JMS non-interactively.
+A future improvement is invoking `blender` from a build script to export the JMS non-interactively.
 
 ### Textures (todo)
 
@@ -59,13 +59,13 @@ Firstly, a base tagset needs to be setup. I am using the stock CE tagset overlai
 
 #### Map tagset (todo)
 
-Map-specific tags will be built using `build_alpine_tagset.sh`, which for now just compiles a bitmap. I plan to make use of a few different tools:
+Map-specific tags will be built using `build_alpine_tagset.sh`, which for now is just a clipboard to keep common commands. I plan to make use of a few different tools:
 
 * [Invader][4]: Replaces the HEK's Tool (mostly). Can be installed from the AUR or built, [see docs][10]
 * [Reclaimer][5]: Declaratively generate some tag data? Installed with `pip install --user -r requirements.txt`
 * [Halo Editing Kit][6]: Needed to generate tags like .gbxmodel and .scenario_structure_bsp, and run radiosity
 
-I am aiming to avoid the HEK when possible since it's known to be buggy and produce undefined behaviour ingame, which goes against the ideals of repeatable and correct automation. It also seems like the HEK will be unable to target MCC.
+I am aiming to avoid the HEK when possible since it's known to be buggy and produce undefined behaviour ingame, which goes against the ideals of repeatable and correct automation. It also seems like the HEK will be unable to target MCC (assuming MCC custom maps are even supported).
 
 #### Lightmaps (todo)
 
@@ -95,6 +95,5 @@ HEK's Sapien will be used for scenery and netgame flag placement. Theoretically 
 [5]: https://github.com/Sigmmma/reclaimer
 [6]: http://hce.halomaps.org/index.cfm?fid=411
 [7]: https://www.gimp.org/
-[8]: https://docs.blender.org/api/blender_python_api_2_63_14/bpy.types.Object.html?highlight=object#bpy.types.Object.to_mesh
 [9]: https://www.reddit.com/r/HaloCERefined/
 [10]: https://invader.opencarnage.net/
