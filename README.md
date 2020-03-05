@@ -38,15 +38,15 @@ The map's level geometry is authored in [Blender][2] and exported using [Project
   * **bsp**: Main level geometry
 * **sun**: Approximate sunlight direction, used for prototyping lighting and shadows. Put Blender in rendered view mode for a preview
 
-Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled. This ensures they will take effect during export. Select "Halo Joined Model Skeleton (.jms)" from the export menu and use these options:
+Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled (so they take effect during export) and that any changes are saved. You can then run a script to automatically export to JMS, compile the structure, and run lightmaps on it:
 
-* Path: `data/levels/alpine/models/alpine.JMS`
-* Encoding: UTF-8
-* Version: 8200
-* Game: Halo CE
-* Triangulate faces: no (this mesh already has the triangulate modifier)
+```sh
+export WINEPREFIX=<path to wine prefix for Halo and the HEK>
+export HALO_HOME=<path to Halo installation within the prefix>
+export JMS_EXPORTER=<path to Blend2Halo2-JMS.py>
 
-A future improvement is invoking `blender` from a build script to export the JMS non-interactively.
+./compile_bsp.sh
+```
 
 ### Textures (todo)
 
