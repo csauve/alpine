@@ -94,6 +94,9 @@ Thank you to the following folks who helped with tools and advice on this map:
 * Mack_Of_Trades69
 * MosesOfEgypt
 
+## License
+This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Feel free to remix or redistribute for any purpose as long as there's attribution and your derivatives are shared under the same license.
+
 
 [1]: https://github.com/Project-Cartographer/H2V-Blender-JMSv2-Exporter
 [2]: https://www.blender.org/
