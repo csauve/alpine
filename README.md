@@ -38,13 +38,13 @@ The map's level geometry is authored in [Blender][2] and exported using [Project
   * **bsp**: Main level geometry
 * **sun**: Approximate sunlight direction, used for prototyping lighting and shadows. Put Blender in rendered view mode for a preview
 
-Select "Halo Joined Model Skeleton (.jms)" from the export menu and use these options:
+Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled. This ensures they will take effect during export. Select "Halo Joined Model Skeleton (.jms)" from the export menu and use these options:
 
 * Path: `data/levels/alpine/models/alpine.JMS`
 * Encoding: UTF-8
 * Version: 8200
 * Game: Halo CE
-* Triangulate faces: no
+* Triangulate faces: no (this mesh already has the triangulate modifier)
 
 A future improvement is invoking `blender` from a build script to export the JMS non-interactively.
 
@@ -67,25 +67,32 @@ Map-specific tags will be built using `build_alpine_tagset.sh`, which for now is
 
 I am aiming to avoid the HEK when possible since it's known to be buggy and produce undefined behaviour ingame, which goes against the ideals of repeatable and correct automation. It also seems like the HEK will be unable to target MCC (assuming MCC custom maps are even supported).
 
-#### Lightmaps (todo)
+#### Lightmaps, scenery placement (todo)
 
-Use tool or Sapien for lightmap generation. Might be nice to create tooling like Aether for 3ds Max, but for Blender instead.
+Lightmaps can be generated using Tool or Sapien, and scenery (plus vehicles, spawns, netgame flags, etc) must be placed in Sapien as described in the [HEK tutorial][8].
 
-#### Scenery placement (todo)
-
-HEK's Sapien will be used for scenery and netgame flag placement. Theoretically this could also be done by exporting this info from Blender to a YAML format, then serializing that into a scenario tag using reclaimer? That may allow for a shorter development cycle.
+Theoretically these tasks could also be done from within Blender with some yet-to-be-built tooling.
 
 ## Todo
-* Resolve scale and BSP compilation issues using new JMS exporter
+
 * Finish modeling the map
 * UV mapping
-* Portals
 * Create custom textures
-* Try to automate shader and other tag creation using YAML and reclaimer
-* Try to automate scenery and netgame flag placement using Blender exports and reclaimer rather than Sapien
+* Portals
+* Try to automate shader and other tag creation using YAML and reclaimer, Blender plugin updates
 * Make a custom skybox
 * Playtesting
 * Look into cross-platform task runners like [DoIt][3]
+
+## Thanks
+
+Thank you to the following folks who helped with tools and advice on this map:
+
+* General_101
+* Kavawuvi
+* Shelly
+* Mack_Of_Trades69
+* MosesOfEgypt
 
 
 [1]: https://github.com/Project-Cartographer/H2V-Blender-JMSv2-Exporter
@@ -95,5 +102,6 @@ HEK's Sapien will be used for scenery and netgame flag placement. Theoretically 
 [5]: https://github.com/Sigmmma/reclaimer
 [6]: http://hce.halomaps.org/index.cfm?fid=411
 [7]: https://www.gimp.org/
+[8]: http://hce.halomaps.org/hek/
 [9]: https://www.reddit.com/r/HaloCERefined/
 [10]: https://invader.opencarnage.net/
