@@ -36,6 +36,7 @@ The map's level geometry is authored in [Blender][2] and exported using [Project
 
 * **frame**: Only children of this reference frame are exported to the JMS file
   * **bsp**: Main level geometry
+* **bits**: Some extra geometry that might be used later, but shouldn't be included in the export
 * **sun**: Approximate sunlight direction, used for prototyping lighting and shadows. Put Blender in rendered view mode for a preview
 
 Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled (so they take effect during export) and that any changes are saved. You can then run a script to automatically export to JMS, compile the structure, and run lightmaps on it:
