@@ -10,6 +10,7 @@
 /guerilla.cfg
 /heap_dump.txt
 /data/debug_lightmaps.tif
+/tool_d3d9.log
 
 *.blend1
 
@@ -51,3 +52,21 @@
 /tags/levels/alpine/bitmaps
 /tags/levels/alpine/alpine.bitmap
 /tags/levels/alpine/alpine.scenario_structure_bsp
+/tags/sky/bitmaps
+/tags/sky/clear afternoon
+/tags/sky/dusk
+/tags/sky/mp_dusk
+/tags/sky/mp clear afternoon
+/tags/sky/planets
+/tags/sky/ring
+/tags/sky/sky_a30
+/tags/sky/sky_a50
+/tags/sky/sky_d20
+/tags/sky/sky_d40
+/tags/sky/sky_gephyrophobia
+/tags/sky/sky_icefields
+/tags/sky/sky_infinity
+/tags/sky/sky_sidewinder
+/tags/sky/sky_timberland
+/tags/sky/sky_ui
+/tags/sky/sky_x10

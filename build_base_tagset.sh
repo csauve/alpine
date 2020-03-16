@@ -18,8 +18,16 @@ if [ ! -d deps/refined_halo1_replacement_tags ]; then
   7z x deps/refined.7z -o"deps"
 fi
 
+if [ ! -f deps/editor_tags.7z ]; then
+    wget -O deps/editor_tags.7z "https://cdn.discordapp.com/attachments/523620962390769695/654482973390929932/editor_tags.7z"
+fi
+if [ ! -d deps/editor_tags ]; then
+  7z x deps/editor_tags.7z -o"deps/editor_tags"
+fi
+
 # overlay tagsets in order
 rsync -r "deps/fresh/tags/" tags
+rsync -r "deps/editor_tags/" tags
 rsync -r "deps/refined_halo1_replacement_tags/fixes/missing_multipurpose_fixes/dxt1/" tags
 rsync -r "deps/refined_halo1_replacement_tags/fixes/00_active_camo_fix/" tags
 rsync -r "deps/refined_halo1_replacement_tags/fixes/00_contrail_fixes/" tags

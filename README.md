@@ -90,6 +90,7 @@ Theoretically these tasks could also be done from within Blender with some yet-t
 Thank you to the following folks who helped with tools and advice on this map:
 
 * General_101
+* Anthony
 * Kavawuvi
 * Shelly
 * Mack_Of_Trades69
