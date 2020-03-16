@@ -2,8 +2,7 @@
 
 This repo contains the sources and build automation for my Halo CE map, working title _Alpine_. The map is still a work in progress:
 
-![Screenshot](screenshots/mesh.png)
-![Screenshot 2](screenshots/mesh2.png)
+![Screenshot](screenshots.png)
 
 ## Design
 
