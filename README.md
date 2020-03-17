@@ -86,7 +86,7 @@ Theoretically these tasks could also be done from within Blender with some yet-t
 
 ## Thanks
 
-Thank you to the following folks who helped with tools and advice on this map:
+Thank you to the following folks who helped with tools, advice, and testing for this map:
 
 * General_101
 * Anthony
@@ -94,6 +94,7 @@ Thank you to the following folks who helped with tools and advice on this map:
 * Shelly
 * Mack_Of_Trades69
 * MosesOfEgypt
+* Masterz1337
 
 ## License
 This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Feel free to remix or redistribute for any purpose as long as there's attribution and your derivatives are shared under the same license.
