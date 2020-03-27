@@ -7,7 +7,7 @@ set -e
 #JMS_EXPORTER
 
 RADIOSITY_QUALITY=0.5
-RADIOSITY_STOP=0.5
+RADIOSITY_STOP=0.2
 
 blender \
   -b data/levels/alpine/models/alpine.blend \
