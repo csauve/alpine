@@ -17,7 +17,6 @@ fi
 if [ ! -d deps/refined_halo1_replacement_tags ]; then
   7z x deps/refined.7z -o"deps"
 fi
-
 if [ ! -f deps/editor_tags.7z ]; then
     wget -O deps/editor_tags.7z "https://cdn.discordapp.com/attachments/523620962390769695/654482973390929932/editor_tags.7z"
 fi
@@ -29,13 +28,7 @@ fi
 rsync -r "deps/fresh/tags/" tags
 rsync -r "deps/editor_tags/" tags
 rsync -r "deps/refined_halo1_replacement_tags/fixes/missing_multipurpose_fixes/dxt1/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/00_active_camo_fix/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/00_contrail_fixes/" tags
+# rsync -r "deps/refined_halo1_replacement_tags/fixes/00_active_camo_fix/" tags
+# rsync -r "deps/refined_halo1_replacement_tags/fixes/00_contrail_fixes/" tags
 rsync -r "deps/refined_halo1_replacement_tags/fixes/00_incorrect_multipurpose_fixes/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/00_senv_shader_on_gbxmodels_fix/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/00_shader_blend_fixes/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/00_vehicle_and_weapon_fixes/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/01_b40_c10_c40_a30_fog_fixes/" tags
-rsync -r "deps/refined_halo1_replacement_tags/fixes/02_sotr_shader_fixes/part_a/" tags
-rsync -r "deps/refined_halo1_replacement_tags/enhancements/highres_rasterizer_bitmaps/" tags
 rsync -r "deps/refined_halo1_replacement_tags/enhancements/jesse's_high_resolution_halo_hud/tags/" tags
