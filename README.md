@@ -35,7 +35,6 @@ The map's level geometry is authored in [Blender][2] and exported using [Project
 
 * **frame**: Only children of this reference frame are exported to the JMS file
   * **bsp**: Main level geometry
-  * **clip**: Contains player clip geometry used to keep people in the play area
   * **portals**: Geometry which divides the map into clusters for rendering, sound, and weather purposes
   * **weather**: Fog planes and weather polyhedra
 * **bits**: Some extra geometry that might be used later, but shouldn't be included in the export
