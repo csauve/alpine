@@ -11,6 +11,7 @@
 /heap_dump.txt
 /data/debug_lightmaps.tif
 /tool_d3d9.log
+/startup_crash.log
 
 *.blend1
 
