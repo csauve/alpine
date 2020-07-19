@@ -6,7 +6,7 @@ set -e
 #HALO_HOME
 
 RADIOSITY_QUALITY=0.8
-RADIOSITY_STOP=0.08
+RADIOSITY_STOP=0.405
 
 blender -b \
   data/levels/alpine/models/alpine.blend \
