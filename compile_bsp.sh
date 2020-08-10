@@ -20,4 +20,4 @@ blender -b \
 
 # assuming shaders already exist
 wine "$HALO_HOME/tool.exe" structure levels\\alpine alpine
-wine "$HALO_HOME/tool.exe" lightmaps levels\\alpine\\alpine alpine $RADIOSITY_QUALITY $RADIOSITY_STOP
+wine "$HALO_HOME/LM_Tool.exe" lightmaps levels\\alpine\\alpine alpine $RADIOSITY_QUALITY $RADIOSITY_STOP
