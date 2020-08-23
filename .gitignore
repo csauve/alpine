@@ -3,6 +3,7 @@
 /release
 /deps
 
+/lmdbg.txt
 /*.wrl
 /*.obj
 /debug.txt

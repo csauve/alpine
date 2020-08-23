@@ -5,8 +5,8 @@ set -e
 #WINEPREFIX
 #HALO_HOME
 
-RADIOSITY_QUALITY=0.8
-RADIOSITY_STOP=0.405
+RADIOSITY_QUALITY=0.99
+RADIOSITY_STOP=0.4
 
 blender -b \
   data/levels/alpine/models/alpine.blend \
@@ -16,6 +16,7 @@ blender -b \
   --extension ".JMS" \
   --jms_version 8200 \
   --game_version haloce \
+  --hidden_geo \
   --triangulate_faces
 
 # assuming shaders already exist
