@@ -24,7 +24,7 @@ Halo CE maps are traditional built using the Halo Editing Kit (HEK), Photoshop, 
 ## Content creation
 ### Level geometry
 
-The map's level geometry is authored in [Blender][2] and exported using [Project Cartographer's JMS toolset][1]. It can be found in `data/levels/alpine/models/alpine.blend`. The scene uses default units, with the view's clip range set to 100-100,000. It contains the following objects:
+The map's level geometry is authored in [Blender][2] and exported using [Blender JMS toolkit][1]. It can be found in `data/levels/alpine/models/alpine.blend`. The scene uses default units, with the view's clip range set to 100-100,000. It contains the following objects:
 
 * **frame**: Only children of this reference frame are exported to the JMS file
   * **bsp**: Main level geometry
