@@ -1,38 +1,44 @@
 # Alpine
-
-This repo contains the sources and build automation for my Halo CE map, working title _Alpine_. The map is still a work in progress:
+This repo contains the sources for _Alpine_, a CTF-oriented Halo Custom Edition map:
 
 ![Screenshot](screenshot.png)
 
-## Design
-
-_Alpine_ is intended to be a semi-symmetric mixed indoor-outdoor map and takes cues from a variety of other Halo maps:
-
-* Exteriors inspired by Valhalla, Relic, [Mudslide](http://hce.halomaps.org/index.cfm?fid=528), and [Portent](http://hce.halomaps.org/index.cfm?fid=1796).
-* Interiors inspired by The Silent Cartographer (b30), Longest, Relic, Hang 'Em High
+_Alpine_ is inspired by Valhalla, Relic, The Silent Cartographer (b30), Longest, Hang 'Em High, [Mudslide](http://hce.halomaps.org/index.cfm?fid=528), and [Portent](http://hce.halomaps.org/index.cfm?fid=1796). A custom `sky_alpine` skybox and `wildflower` scenery are also included in this repo.
 
 ## Building the map
+The [Halo Editing Kit (HEK)][8] is required to build this map. The map relies on the following tag sets, applied in this order:
 
-At a high level, Halo CE maps are built in a multi-step iterative process:
+1. [HEK base tags][11]: Already included in the HEK, but repair if needed.
+2. [Fresh MP/SP tagset (Refined Project)][12]: A more complete tag set extracted from stock maps.
+3. [Jesse's high resolution HUD][13]: A higher quality player HUD by Jesse, found under `enhancements`.
 
-1. Source content creation using 2D and 3D software
-2. Creation and editing of tags, Halo's binary representation of map data
-3. Compilation of a distributable _.map_ cache file
+In each case, copy the tags into the HEK's tags directory to build the dependency tag set. Alpine's own tags also need to be copied into the HEK's tag set. Run the included [Python][3] script to synchronize tags from this project:
 
-Halo CE maps are traditional built using the Halo Editing Kit (HEK), Photoshop, and 3ds Max on Windows. However, in this project I am attempting to take advantage of modern community-maintained tools when possible and the following instructions will follow my Linux-based workflow. This is an experiment in automation and the script in this project are very much incomplete. I intend to revisit them closer to or after completion of the map.
+```sh
+python hek-sync.py <hek-root>
+```
 
-## Content creation
-### Level geometry
+This script will copy Alpine tags between the local project and the HEK based on file existence and last modified date, so it can be used during map development too. With the tag set now complete under the HEK, use [Tool][14] to build the map:
 
-The map's level geometry is authored in [Blender][2] and exported using [Blender JMS toolkit][1]. It can be found in `data/levels/alpine/models/alpine.blend`. The scene uses default units, with the view's clip range set to 100-100,000. It contains the following objects:
+```sh
+# creates maps/alpine.map
+tool.exe build-cache-file levels\alpine\alpine
+```
+
+## Asset creation
+Source assets can be found under the `data` directory.
+
+Texture sources are `.kra` files for the free 2D software [Krita][7]. They are exported to flattened `.tif` files and then compiled to `.bitmap` tags using Tool.
+
+The map's level geometry is authored in [Blender][2] and exported using [General_101's Blender JMS toolkit][1]. It can be found in `data/levels/alpine/models/alpine.blend`. It contains the following objects:
 
 * **frame**: Only children of this reference frame are exported to the JMS file
   * **bsp**: Main level geometry
   * **portals**: Geometry which divides the map into clusters for rendering, sound, and weather purposes
   * **weather**: Fog planes and weather polyhedra
-* **sun**: Approximate sunlight direction, used for prototyping lighting and shadows. Put Blender in rendered view mode for a preview
 
-Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled (so they take effect during export) and that any changes are saved. You can then run a script to automatically export to JMS, compile the structure, and run lightmaps on it:
+
+Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled (so they take effect during export) and that any changes are saved. The scene must be exported at JMS unit scale. Alternatively, use the included script (assumes Wine on Linux) to automatically export the mesh and regenerate lightmaps:
 
 ```sh
 export WINEPREFIX=<path to wine prefix for Halo and the HEK>
@@ -42,42 +48,13 @@ export JMS_EXPORTER=<path to Blend2Halo2-JMS.py>
 ./compile_bsp.sh
 ```
 
-### Textures
-
-Texture sources are .kra files for the free 2D software [Krita][7]. They are exported to flattened .tif files and then compiled to bitmap tags using the HEK's `tool.exe`. I intend to use scripted invader-bitmap for this in a future change.
-
-### Tag creation
-#### Base tagset
-
-Firstly, a base tagset needs to be setup. I am using the stock CE tagset overlaid with some of the [Refined project tags][9]. The downloading and unpacking of these tags into the `tags` directory is automated by running `./build_base_tagset.sh`. Note this requires installing `rsync`, `wget`, and `p7zip` packages.
-
-#### Map tagset (todo)
-
-Map-specific tags will be built using `build_alpine_tagset.sh`, which for now is just a clipboard to keep common commands. I plan to make use of a few different tools:
-
-* [Invader][4]: Replaces the HEK's Tool (mostly). Can be installed from the AUR or built, [see docs][10]
-* [Reclaimer][5]: Declaratively generate some tag data? Installed with `pip install --user -r requirements.txt`
-* [Halo Editing Kit][6]: Needed to generate tags like .gbxmodel and .scenario_structure_bsp, and run radiosity
-
-I am aiming to avoid the HEK when possible since it's known to be buggy and produce undefined behaviour ingame, which goes against the ideals of repeatable and correct automation. It also seems like the HEK will be unable to target MCC (assuming MCC custom maps are even supported).
-
-#### Lightmaps, scenery placement
-
-Lightmaps can be generated using Tool or Sapien, and scenery (plus vehicles, spawns, netgame flags, etc) must be placed in Sapien as described in the [HEK tutorial][8]. Theoretically these tasks could also be done from within Blender with some yet-to-be-built tooling.
-
-## Todo
-
-* Try to automate shader and other tag creation using YAML and reclaimer, Blender plugin updates
-* Finish skybox
-* Look into cross-platform task runners like [DoIt][3]
-
 ## Thanks
-
 Thank you to the following folks who helped with tools, advice, and testing for this map:
 
+* [Refined team][9]
+* Jesse
 * General_101
 * Anthony
-* Kavawuvi
 * Shelly
 * Mack_Of_Trades69
 * MosesOfEgypt
@@ -86,10 +63,9 @@ Thank you to the following folks who helped with tools, advice, and testing for 
 ## License
 This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Feel free to remix or redistribute for any purpose as long as there's attribution and your derivatives are shared under the same license.
 
-
 [1]: https://github.com/General-101/Halo-Jointed-Model-Blender-Toolset
 [2]: https://www.blender.org/
-[3]: https://pydoit.org/
+[3]: https://www.python.org/
 [4]: https://github.com/Kavawuvi/invader
 [5]: https://github.com/Sigmmma/reclaimer
 [6]: http://hce.halomaps.org/index.cfm?fid=411
@@ -97,3 +73,7 @@ This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons
 [8]: http://hce.halomaps.org/hek/
 [9]: https://www.reddit.com/r/HaloCERefined/
 [10]: https://invader.opencarnage.net/
+[11]: https://cdn.discordapp.com/attachments/523620962390769695/654482973390929932/editor_tags.7z
+[12]: https://www.dropbox.com/s/j6fb3ox6z1xmzzq/fresh_mp_sp_custom_edition_tagset.7z?dl=1
+[13]: https://www.dropbox.com/s/p2d76dsu47axrao/refined_halo1_replacement_tags.7z?dl=1
+[14]: https://c20.reclaimers.net/h1/tools/hek/tool/

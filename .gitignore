@@ -1,30 +1,4 @@
-*.*
-!/build-scripts/**/*.*
-!README.md
-
-# include project data and tags
-!/tags/levels/alpine/**/*.*
-!/tags/sky/sky_alpine/**/*.*
-!/tags/scenery/wildflower/**/*.*
-!/data/levels/alpine/**/*.*
-!/data/sky/sky_alpine/**/*.*
-!/data/scenery/wildflower/**/*.*
 *.kra~
 *.tif~
 *.blend1
 *.kra-autosave.kra
-
-# include dependency tags not included in HEK tagset
-#!sky\sky_a30\skydusk0\bitmaps\horizon land.bitmap
-#!scenery\debris\banshee_crashed\banshee_crashed.scenery
-#!scenery\debris\rocks_smoldering\rocks_smoldering.scenery
-#!scenery\vehicles\c_dropship_crashed\c_dropship_crashed.scenery
-#!scenery\debris\rocks_smoldering\rocks_smoldering.scenery
-#!characters\sentinel\sentinel.biped
-#!levels\b30\devices\interior tech objects\holo display wide\holo display wide.device_machine
-#!levels\b30\devices\interior tech objects\holo display tall\holo display tall.device_machine
-#!levels\b30\devices\interior tech objects\holo panel\holo panel.device_machine
-#!levels\c20\devices\holo radial control\holo radial control.device_machine
-#!levels\c20\devices\holo control\holo control.device_machine
-#!effects\detail_objects\grass_field\grass_field.bitmap
-#!characters\sentinel\sentinel.actor_variant
