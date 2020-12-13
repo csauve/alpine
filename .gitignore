@@ -2,3 +2,6 @@
 *.tif~
 *.blend1
 *.kra-autosave.kra
+*.wrl
+*.obj
+todo.md
