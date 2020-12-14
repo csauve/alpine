@@ -48,7 +48,7 @@ export JMS_EXPORTER=<path to Blend2Halo2-JMS.py>
 ./compile_bsp.sh
 ```
 
-Final lightmaps were run with quality `1` and stop value `0.765`.
+Final lightmaps were run with quality `1` and stop value `0.6`.
 
 ## Thanks
 Thank you to the following folks who helped with tools, advice, and testing for this map:
