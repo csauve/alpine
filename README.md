@@ -48,17 +48,19 @@ export JMS_EXPORTER=<path to Blend2Halo2-JMS.py>
 ./compile_bsp.sh
 ```
 
+Final lightmaps were run with quality `1` and stop value `0.765`.
+
 ## Thanks
 Thank you to the following folks who helped with tools, advice, and testing for this map:
 
-* [Refined team][9]
-* Jesse
-* General_101
 * Anthony
-* Shelly
+* General_101
+* Jesse
 * Mack_Of_Trades69
 * MosesOfEgypt
-* Masterz1337
+* [Refined team][9]
+* Shelly
+* Sheriff Brian
 
 ## License
 This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Feel free to remix or redistribute for any purpose as long as there's attribution and your derivatives are shared under the same license.
