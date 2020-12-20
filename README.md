@@ -1,9 +1,11 @@
 # Alpine
-This repo contains the sources for _Alpine_, a CTF-oriented Halo Custom Edition map:
+This repo contains the sources for _Alpine_, a Halo Custom Edition map:
 
-![Screenshot](screenshot.png)
+![Screenshot of the level in-game](screenshot.jpg)
 
-_Alpine_ is inspired by Valhalla, Relic, The Silent Cartographer (b30), Longest, Hang 'Em High, [Mudslide](http://hce.halomaps.org/index.cfm?fid=528), and [Portent](http://hce.halomaps.org/index.cfm?fid=1796). A custom `sky_alpine` skybox and `wildflower` scenery are also included in this repo.
+_This secluded mountain valley bears the burden of secrets both ancient and recent._
+
+Alpine is inspired by Valhalla, Relic, The Silent Cartographer (b30), Longest, Hang 'Em High, [Mudslide](http://hce.halomaps.org/index.cfm?fid=528), and [Portent](http://hce.halomaps.org/index.cfm?fid=1796). A custom `sky_alpine` skybox and `wildflower` scenery are also included in this repo.
 
 ## Building the map
 The [Halo Editing Kit (HEK)][8] is required to build this map. The map relies on the following tag sets, applied in this order:
@@ -37,33 +39,36 @@ The map's level geometry is authored in [Blender][2] and exported using [General
   * **portals**: Geometry which divides the map into clusters for rendering, sound, and weather purposes
   * **weather**: Fog planes and weather polyhedra
 
+Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled (so they take effect during export) and that any changes are saved. The scene must be exported at JMS unit scale. To compile the BSP:
 
-Before exporting, ensure all mesh modifiers have the "Realtime" setting enabled (so they take effect during export) and that any changes are saved. The scene must be exported at JMS unit scale. Alternatively, use the included script (assumes Wine on Linux) to automatically export the mesh and regenerate lightmaps:
+```sh
+tool structure levels\alpine alpine
+```
+
+Final lightmaps were run with quality `1` and stop value `0.54`. The parameters `0` and `0.8` are suitable for debug lightmaps.
+
+```sh
+# run overnight
+tool lightmaps levels\alpine\alpine alpine 1 0.54
+```
+
+Alternatively, use the included `compile_bsp.sh` (assumes Wine on Linux) to automatically export the mesh and regenerate lightmaps:
 
 ```sh
 export WINEPREFIX=<path to wine prefix for Halo and the HEK>
 export HALO_HOME=<path to Halo installation within the prefix>
-export JMS_EXPORTER=<path to Blend2Halo2-JMS.py>
-
 ./compile_bsp.sh
 ```
 
-Final lightmaps were run with quality `1` and stop value `0.6`.
-
 ## Thanks
-Thank you to the following folks who helped with tools, advice, and testing for this map:
-
-* Anthony
-* General_101
-* Jesse
-* Mack_Of_Trades69
-* MosesOfEgypt
-* [Refined team][9]
-* Shelly
-* Sheriff Brian
+* [Refined project][9] for the extracted SP tags
+* Jesse for the high resolution HUD
+* General_101 for the Blender JMS exporter
+* MosesOfEgypt for portaling advice
+* Anthony, Mack_Of_Trades69, Shelly, jcap, Tnnaas, Zeph, Futzy, InnerGoat for map testing
 
 ## License
-This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Feel free to remix or redistribute for any purpose as long as there's attribution and your derivatives are shared under the same license.
+This map and its sources are shared under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Feel free to remix or redistribute for any purpose as long as there's attribution and your derivatives are non-commercial.
 
 [1]: https://github.com/General-101/Halo-Jointed-Model-Blender-Toolset
 [2]: https://www.blender.org/
@@ -73,7 +78,7 @@ This map and its sources are shared under [CC BY-SA 2.0](https://creativecommons
 [6]: http://hce.halomaps.org/index.cfm?fid=411
 [7]: https://krita.org/en
 [8]: http://hce.halomaps.org/hek/
-[9]: https://www.reddit.com/r/HaloCERefined/
+[9]: discord.gg/QKkf9kE
 [10]: https://invader.opencarnage.net/
 [11]: https://cdn.discordapp.com/attachments/523620962390769695/654482973390929932/editor_tags.7z
 [12]: https://www.dropbox.com/s/j6fb3ox6z1xmzzq/fresh_mp_sp_custom_edition_tagset.7z?dl=1
